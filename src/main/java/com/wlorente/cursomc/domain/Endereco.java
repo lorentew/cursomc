@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Endereco {
@@ -22,7 +22,7 @@ public class Endereco {
 	private String bairro;
 	private String cep;
 	
-	@JsonBackReference // O endereco nao deve conhecer o clientem --m associacao ciclica
+	@JsonIgnore // O endereco nao deve conhecer o clientem --m associacao ciclica
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
